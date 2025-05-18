@@ -1,0 +1,247 @@
+@font-face {
+  font-family: "Alata";
+  src: url("./Alata/Alata-Regular.ttf");
+}
+
+@font-face {
+  font-family: "Josefin";
+  src: url("./Josefin_Sans/JosefinSans-VariableFont_wght.ttf");
+}
+
+:root {
+  --White: hsl(0, 0%, 100%);
+  --Black: hsl(0, 0%, 0%);
+  --Grey-200: hsl(0, 0%, 85%);
+
+  --p: var(--Grey-200);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Alata";
+  overflow-x: hidden;
+}
+
+h1,
+h3 {
+  color: var(--White);
+  margin: 0;
+}
+
+h2 {
+  color: var(--Black);
+  margin: 0;
+}
+ul {
+  padding: 0;
+  margin: 0;
+}
+p {
+  margin: 0;
+  color: var(--p);
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+.container {
+  width: 1200px;
+  margin: auto;
+  padding-inline: calc(25 / 16 * 1em);
+
+  @media (width<1200px) {
+    width: 1000px;
+    padding-inline: calc(20 / 16 * 1em);
+  }
+  @media (width<1000px) {
+    width: 800px;
+    padding-inline: calc(20 / 16 * 1em);
+  }
+  @media (width<800px) {
+    width: 600px;
+    padding-inline: calc(15 / 16 * 1em);
+  }
+  @media (width<600px) {
+    width: 100%;
+  }
+}
+
+header {
+  width: 100%;
+  position: absolute;
+  /* background-color: black; */
+  padding-block: calc(20 / 16 * 1em);
+  left: 0;
+  top: 0;
+}
+
+.header__container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header__bar {
+  display: none;
+  cursor: pointer;
+  @media (width<600px) {
+    display: block;
+  }
+}
+
+.header__nav {
+  @media (width<600px) {
+    position: absolute;
+    top: 0;
+    right: 0;
+    translate: 100%;
+    width: 150px;
+    transition: 0.5s;
+    padding: calc(20 / 16 * 1em);
+    width: 100%;
+    background-color: var(--Black);
+
+    &[data-is-active="true"] {
+      translate: 0;
+    }
+  }
+}
+
+.header__nav__close {
+  display: none;
+  @media (width<600px) {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: calc(20 / 16 * 1em);
+    cursor: pointer;
+  }
+}
+.header__nav__close__img {
+}
+
+.header__list {
+  display: flex;
+  flex-direction: row;
+  gap: calc(16 / 16 * 1em);
+  list-style-type: none;
+  @media (width<600px) {
+    flex-direction: column;
+  }
+}
+.header__item {
+}
+.header__link {
+  color: var(--White);
+  text-decoration: none;
+
+  position: relative;
+
+  &::before {
+    content: "";
+    width: 0;
+    height: 2px;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    transition: 0.5s;
+    background-color: white;
+    transform-origin: center;
+  }
+
+  &:hover {
+    &::before {
+      width: 100%;
+    }
+  }
+}
+
+/* hero */
+
+.hero {
+  min-height: 100lvh;
+  background-image: url("./images/desktop/image-hero.jpg");
+  align-content: center;
+  font-family: "Josefin";
+  background-size: cover;
+  background-repeat: no-repeat;
+  @media (width<600px) {
+    background-image: url("./images/mobile/image-hero.jpg");
+  }
+}
+.hero__container {
+}
+.hero__title {
+  margin: 0;
+  font-size: 60px;
+  font-weight: 300;
+  width: 700px;
+  letter-spacing: 5px;
+  padding: 20px;
+  border: 2px solid var(--White);
+  text-transform: uppercase;
+}
+
+/* description */
+
+.description {
+  padding-block: 90px;
+}
+.description__container {
+  position: relative;
+}
+.description__img {
+  @media (width<600px) {
+    display: none;
+  }
+}
+.description__img__mobile {
+  display: none;
+  @media (width<600px) {
+    display: block;
+  }
+}
+.description__text {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 600px;
+  height: 300px;
+  background-color: white;
+  padding-left: 135px;
+  padding-top: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+
+  @media (width<800px) {
+    /* padding-top: ; */
+    padding-left: 30px;
+  }
+
+  @media (width<800px) {
+    width: 100%;
+    height: auto;
+    padding: 20px;
+    position: static;
+    justify-content: start;
+  }
+}
+.description__title {
+  margin-bottom: 10px;
+  font-family: "Josefin";
+  text-transform: uppercase;
+  font-size: 40px;
+  font-weight: 300;
+}
+.description__paragraph {
+}
