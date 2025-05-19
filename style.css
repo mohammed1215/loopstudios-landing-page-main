@@ -109,6 +109,7 @@ header {
     padding: calc(20 / 16 * 1em);
     width: 100%;
     background-color: var(--Black);
+    height: 100lvh;
 
     &[data-is-active="true"] {
       translate: 0;
@@ -136,6 +137,11 @@ header {
   list-style-type: none;
   @media (width<600px) {
     flex-direction: column;
+    margin-top: 100%;
+    font-size: 20px;
+    font-family: "Josefin";
+    text-transform: uppercase;
+    font-weight: 200;
   }
 }
 .header__item {
@@ -151,16 +157,16 @@ header {
     width: 0;
     height: 2px;
     position: absolute;
-    left: 0;
+    left: 50%;
     bottom: 0;
     transition: 0.5s;
     background-color: white;
-    transform-origin: center;
+    transform: translateX(-50%);
   }
 
   &:hover {
     &::before {
-      width: 100%;
+      width: 30px;
     }
   }
 }
@@ -189,6 +195,10 @@ header {
   padding: 20px;
   border: 2px solid var(--White);
   text-transform: uppercase;
+  @media (width<700px) {
+    font-size: 25px;
+    width: 100%;
+  }
 }
 
 /* description */
@@ -234,6 +244,7 @@ header {
     padding: 20px;
     position: static;
     justify-content: start;
+    text-align: center;
   }
 }
 .description__title {
@@ -244,4 +255,259 @@ header {
   font-weight: 300;
 }
 .description__paragraph {
+}
+
+/* achievments */
+.achievments {
+  padding-top: 100px;
+  padding-bottom: 150px;
+}
+
+.achievments__container {
+}
+.achievment__first__component {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 50px;
+  @media (width<600px) {
+    justify-content: center;
+  }
+}
+.achievments__title {
+  font-family: "Josefin";
+  font-weight: 500;
+  text-transform: uppercase;
+}
+.achievments__button {
+  border: 2px solid black;
+  background-color: var(--White);
+  padding: 10px 30px;
+  cursor: pointer;
+  font-family: "Josefin";
+  transition: 0.5s;
+  &:hover {
+    background-color: var(--Black);
+    color: var(--White);
+  }
+
+  @media (width<600px) {
+    display: none;
+  }
+}
+.achievments__cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(256px, 1fr));
+  gap: 30px;
+}
+
+.achievments__card {
+  height: 450px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  display: flex;
+  align-items: end;
+  padding: 35px;
+  /* filter: brightness(0.5); */
+  position: relative;
+  &[data-small-size="true"] {
+    height: 170px;
+  }
+  &::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0),
+      rgba(0, 0, 0, 0.258)
+    );
+  }
+}
+
+.achievments__card:nth-child(1) {
+  background-image: url("./images/desktop/image-deep-earth.jpg");
+  &[data-small-size="true"] {
+    background-image: url("./images/mobile/image-deep-earth.jpg");
+  }
+}
+.achievments__card:nth-child(2) {
+  background-image: url("./images/desktop/image-night-arcade.jpg");
+  &[data-small-size="true"] {
+    background-image: url("./images/mobile/image-night-arcade.jpg");
+  }
+}
+.achievments__card:nth-child(3) {
+  background-image: url("./images/desktop/image-soccer-team.jpg");
+  &[data-small-size="true"] {
+    background-image: url("./images/mobile/image-soccer-team.jpg");
+  }
+}
+.achievments__card:nth-child(4) {
+  background-image: url("./images/desktop/image-grid.jpg");
+  &[data-small-size="true"] {
+    background-image: url("./images/mobile/image-grid.jpg");
+  }
+}
+.achievments__card:nth-child(5) {
+  background-image: url("./images/desktop/image-from-above.jpg");
+  &[data-small-size="true"] {
+    background-image: url("./images/mobile/image-from-above.jpg");
+  }
+}
+.achievments__card:nth-child(6) {
+  background-image: url("./images/desktop/image-pocket-borealis.jpg");
+  &[data-small-size="true"] {
+    background-image: url("./images/mobile/image-pocket-borealis.jpg");
+  }
+}
+.achievments__card:nth-child(7) {
+  background-image: url("./images/desktop/image-curiosity.jpg");
+  &[data-small-size="true"] {
+    background-image: url("./images/mobile/image-curiosity.jpg");
+  }
+}
+.achievments__card:nth-child(8) {
+  background-image: url("./images/desktop/image-fisheye.jpg");
+  &[data-small-size="true"] {
+    background-image: url("./images/mobile/image-fisheye.jpg");
+  }
+}
+.achievments__card__title {
+  font-size: 30px;
+  font-family: "Josefin";
+  text-transform: uppercase;
+  font-weight: 300;
+}
+
+.achievments__more__mobile {
+  border: 2px solid black;
+  background-color: var(--White);
+  padding: 10px 30px;
+  cursor: pointer;
+  font-family: "Josefin";
+  transition: 0.5s;
+  display: none;
+  margin: 20px auto 0;
+  &:hover {
+    background-color: var(--Black);
+    color: var(--White);
+  }
+
+  @media (width<600px) {
+    display: block;
+  }
+}
+
+/* footer */
+
+footer {
+  background-color: var(--Black);
+  padding-block: 30px;
+}
+
+.footer__container {
+  display: flex;
+  justify-content: space-between;
+  /* align-items: center; */
+  align-items: center;
+  @media (width<700px) {
+    flex-direction: column;
+    gap: 20px;
+  }
+}
+
+.footer__1 {
+  display: flex;
+  flex-direction: column;
+  /* align-items: center; */
+  gap: 10px;
+  @media (width<700px) {
+    justify-content: center;
+  }
+}
+.footer__1__image {
+}
+
+.footer__media {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  @media (width<700px) {
+    justify-content: center;
+  }
+}
+
+.footer__media__link {
+  position: relative;
+  &::before {
+    content: "";
+    position: absolute;
+    bottom: -3px;
+    left: 50%;
+    height: 2px;
+    width: 0;
+    transition: 0.5s;
+    background-color: var(--White);
+    transform: translateX(-50%);
+  }
+
+  &:hover {
+    &::before {
+      width: 100%;
+    }
+  }
+}
+
+.footer__2 {
+  display: flex;
+  flex-direction: column;
+
+  gap: 10px;
+
+  @media (width<700px) {
+    justify-content: center;
+  }
+}
+.footer__nav {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  @media (width<700px) {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+.footer__nav li {
+  color: var(--White);
+  list-style-type: none;
+  cursor: pointer;
+  position: relative;
+  &::before {
+    content: "";
+    position: absolute;
+    bottom: -3px;
+
+    height: 2px;
+    width: 0;
+    transition: 0.5s;
+    background-color: var(--White);
+    z-index: 1;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  &:hover {
+    &::before {
+      width: 100%;
+    }
+  }
+}
+.footer__copyright {
+  color: var(--Grey-200);
+  opacity: 0.5;
 }

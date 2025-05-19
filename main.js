@@ -10,3 +10,22 @@ function handleCloseMenu(e) {
 
 openBarButton.addEventListener("click", handleOpenMenu)
 closeBarButton.addEventListener("click", handleCloseMenu)
+
+// change images
+function handleResize(e) {
+  let cardImages = document.querySelectorAll(".achievments__card")
+
+  if (window.innerWidth <= 600) {
+    cardImages.forEach((card) => {
+      card.dataset.smallSize = "true"
+    })
+  } else {
+    cardImages.forEach((card) => {
+      card.dataset.smallSize = "false"
+    })
+  }
+}
+
+handleResize()
+
+window.addEventListener("resize", handleResize)
